@@ -93,5 +93,94 @@ repeatStringNumTimes("abc", 3);
 
 //////
 
+function truncateString(str, num) {
+  // Clear out that junk in your trunk
+  if (str.length <= num) {
+    return str;
+  } else {
+    return str.slice(0, num > 3 ? num : num) + '...';
+  }
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+////
+
+function findElement(arr, func)
+{
+  for(var i=0;i<arr.length;i++)
+  {
+    if(func(arr[i]) == true)
+    return arr[i];
+  }
+  return undefined;
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+/////
+
+
+function booWho(bool) {
+  // What is the new fad diet for ghost developers? The Boolean.
+  if(bool === true || bool === false)
+  return true;
+  else 
+  return false
+}
+
+booWho(null);
+
+/////
+
+
+function titleCase(str) {
+  str = str.toLowerCase();
+  var array = str.split(" ");
+  for(var i=0;i<array.length;i++)
+  {
+    array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1);
+  }
+  str = array.join(" ");
+  return str;
+  }
+
+titleCase("I'm a little tea pot");
+
+/////
+
+function frankenSplice(arr1, arr2, n) 
+{
+  let newArr = arr2.slice();
+  for(var i=0;i<arr1.length;i++)
+  {
+    newArr.splice(n,0,arr1[i]);
+    n++;
+  }
+  return newArr;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+////
+
+function bouncer(arr) {
+  var newArr = [];
+  for(var i=0;i<arr.length;i++)
+  {
+    if(arr[i])
+    {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+
+  // OR USE: return arr.filter(Boolean);
+}
+
+bouncer([7, "ate", "", false, 9]);
+
+//////
+
 
 
