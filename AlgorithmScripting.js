@@ -183,4 +183,45 @@ bouncer([7, "ate", "", false, 9]);
 //////
 
 
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  var newArr = arr.sort(function(a, b){return a-b});
 
+  for(var i=0;i<newArr.length;i++)
+  {
+    if(newArr[i] >= num)
+    return i;
+  }
+  return newArr.length
+}
+
+getIndexToIns([40, 60], 50);
+
+//////
+
+function mutation(arr) {
+  var target = arr[0].toLowerCase();
+  var test = arr[1].toLowerCase();
+  for (var i=0;i<test.length;i++)
+  {
+    if (target.indexOf(test[i]) < 0)
+      return false;
+  }
+  return true;
+}
+
+mutation(["hello", "hey"]);
+
+/////
+
+function chunkArrayInGroups(arr, size) 
+{
+  var arr2 = [];
+  for (var i = 0; i < arr.length; i+=size) 
+  {
+    arr2.push(arr.slice(i , i+size));
+  }
+  return arr2;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
