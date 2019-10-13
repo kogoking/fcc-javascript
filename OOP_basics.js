@@ -210,3 +210,145 @@ Animal.prototype = {
 
 ///////
 
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal, 
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+// Add your code below this line
+
+let duck = Object.create(Animal.prototype); // Change this line
+let beagle = Object.create(Animal.prototype);; // Change this line
+
+duck.eat(); // Should print "nom nom nom"
+beagle.eat(); // Should print "nom nom nom" 
+
+//////
+
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+// Add your code below this line
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+beagle.eat();  // Should print "nom nom nom"
+
+/////
+
+function Animal() { }
+function Bird() { }
+function Dog() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+
+// Add your code below this line
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+
+let duck = new Bird();
+let beagle = new Dog();
+
+///////
+
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog() { }
+
+// Add your code below this line
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.bark = function() {
+    console.log("Woof!");
+};
+
+// Add your code above this line
+
+let beagle = new Dog();
+
+beagle.eat(); // Should print "nom nom nom"
+beagle.bark(); // Should print "Woof!"
+
+/////
+
+
+function Bird() { }
+
+Bird.prototype.fly = function() { return "I am flying!"; };
+
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+
+// Add your code below this line
+
+Penguin.prototype.fly = function()
+{
+    return "Alas, this is a flightless bird.";
+}
+
+// Add your code above this line
+
+let penguin = new Penguin();
+console.log(penguin.fly());
+
+////
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+// Add your code below this line
+
+let glideMixin = function(obj) {
+  obj.glide = function() {
+    console.log("Gliding, wooosh!");
+  }
+};
+
+glideMixin(boat);
+glideMixin(bird);
+
+///
+
+function Bird() {
+  let weight = 15;
+  this.getWeight = function()
+  {
+    return weight;
+  }
+}
+
+///
+
+
+// Immediately invoked function expression or IIFE
+
+(function(){
+  console.log("A cozy nest is ready");
+})();
+
+
+//// END ////
+
+
