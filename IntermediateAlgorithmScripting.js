@@ -132,3 +132,121 @@ function pairElement(str) {
 pairElement("GCG");
 
 ///////////
+
+
+function fearNotLetter(str) {
+ for (var i = 0; i < str.length; i++) {
+    var code = str.charCodeAt(i);
+    if (code !== str.charCodeAt(0) + i) {
+      return String.fromCharCode(code - 1);
+    }
+  }
+  return undefined;
+}
+
+fearNotLetter("abce");
+
+
+///////////////
+
+
+function uniteUnique(arr) {
+  var newArr = [];
+  var arr = Array.from(arguments);
+  for(var i=0;i<arr.length;i++)
+  {
+    for(var j=0;j<arr[i].length;j++)
+    {
+      if(newArr.indexOf(arr[i][j]) == -1)
+      {
+        newArr.push(arr[i][j])
+      }
+    }
+  }
+  return newArr;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+
+////////
+
+function convertHTML(str) {
+  const htmlEntities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+  };
+  return str.replace(/([&<>\"'])/g, match => htmlEntities[match]);
+}
+
+convertHTML("Dolce & Gabbana");
+
+
+///////////////
+
+function sumFibs(num) {
+  var arr = [1,1];
+  var i=0, total=0, next = 0;
+
+  while(next <= num)
+  {
+    var next = arr[i] + arr[i+1];
+    arr.push(next);
+    i++;
+  }
+  arr.pop(arr.length-1);
+  
+  for(var z=0;z<arr.length;z++)
+  {
+    if(arr[z]%2!=0)
+    {
+      total = total + arr[z];
+    }
+  }
+  return total;
+}
+
+sumFibs(10);
+
+
+/////////////
+
+function checkPrime(num)
+{
+  var flag=0;
+  for(var i=2;i<=num/2;i++)
+    {
+      if(num%i==0)
+      {
+        flag=1;
+        break;
+      }
+    }
+    if(flag==0)
+    {
+      return true;
+    }
+  return false;
+}
+
+function sumPrimes(num) 
+{
+  var total = 0;
+  for(var i=2;i<=num;i++)
+  {
+    if(checkPrime(i))
+    {
+      total = total + i;
+    }
+  }
+return total;
+}
+
+sumPrimes(98);
+
+
+///////////
+
