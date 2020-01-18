@@ -250,3 +250,43 @@ sumPrimes(98);
 
 ///////////
 
+function smallestCommons(arr) 
+{
+  function sortNumber(a, b)
+  {
+  return a - b;
+  }
+  arr.sort(sortNumber);
+
+  var range = [arr[0]];
+  var lcmArr = [];
+  for(var i=arr[0];i<arr[1];i++)
+  {
+    range.push(i+1);
+  }
+
+  for(i=range[0];i<10000000;i++)
+  {
+    if(i%range[0]==0 && i%range[range.length-1]==0)
+    {
+      lcmArr.push(i);
+    }
+  }
+  for(var i=0;i<lcmArr.length;i++)
+  {
+    var ctr=0;
+    for(var j=0; j<range.length;j++)
+    {
+      if(lcmArr[i]%range[j]==0)
+      {
+        ctr++;
+
+        if(ctr==range.length)
+        {
+          return(lcmArr[i]);
+        }
+      }
+    }
+  }
+}
+smallestCommons([1,5]);
