@@ -290,3 +290,72 @@ function smallestCommons(arr)
   }
 }
 smallestCommons([1,5]);
+
+//////////
+
+function dropElements(arr, func) {
+  while(true){
+    if (func(arr[0])) {
+      break;
+    } else {
+      arr.shift();
+    }
+  }
+  return arr;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
+
+
+///////////
+
+function steamrollArray(arr)
+{
+  while (arr.some(element => Array.isArray(element)))
+  {
+    arr = arr.flat();
+  }
+  return arr;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
+
+
+////////
+
+function binaryAgent(str) 
+{
+  let array = str.split(' ');
+  array = array.map(item=>{return String.fromCharCode(parseInt(item,2));});
+  return array.join('');
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+
+///////////
+
+function truthCheck(collection, pre) {
+  // Is everyone being true?
+  return collection.every(obj => obj[pre]);}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+
+//////////
+
+function addTogether(first, second) 
+{
+  if (typeof first !== "number")
+  {
+    return undefined;
+  }
+  const sum = second =>
+  typeof second === "number" ? first + second : undefined;
+  return typeof second === "undefined" ? second => sum(second) : sum(second);
+}
+
+addTogether(2,3);
+
+///////
+
