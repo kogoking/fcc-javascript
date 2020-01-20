@@ -357,5 +357,39 @@ function addTogether(first, second)
 
 addTogether(2,3);
 
-///////
+//////////
 
+var Person = function(firstAndLast)
+{
+  let fullName;
+  
+  this.setFullName = (full) => {fullName = full.split(' ');};
+  this.setFirstName = (first) => {fullName[0] = first;};
+  this.setLastName = (last) => {fullName[1] = last;};
+  this.setFullName(firstAndLast);
+  
+  this.getFullName = () => fullName.join(' ');
+  this.getFirstName = () => fullName[0];
+  this.getLastName = () => fullName[1];
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
+
+////////////
+
+function orbitalPeriod(arr)
+{
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  return arr.map(function(el)
+  {
+    return{name:el.name,
+            orbitalPeriod:Math.round((2*Math.PI)*Math.sqrt(Math.pow(earthRadius+el.avgAlt,3)/GM))
+    }
+  });
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+
+/////////////
